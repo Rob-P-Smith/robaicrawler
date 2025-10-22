@@ -1,7 +1,7 @@
 services:
   crawl4ai:
     image: unclecode/crawl4ai:0.7.3
-    container_name: crawl4ai
+    container_name: robaicrawler
     ports:
       - "11235:11235"
     shm_size: '1gb'
