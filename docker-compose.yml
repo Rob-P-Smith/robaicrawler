@@ -1,0 +1,16 @@
+services:
+  crawl4ai:
+    image: unclecode/crawl4ai:0.7.3
+    container_name: crawl4ai
+    ports:
+      - "11235:11235"
+    shm_size: '1gb'
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11235/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    environment:
+      - LOG_LEVEL=INFO
+      - CORS_ORIGINS=http://192.168.10.50:80,http://192.168.10.50,http://localhost:80,http://localhost,*
